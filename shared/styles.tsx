@@ -1,4 +1,5 @@
-import { css, Global } from "@emotion/react";
+import { css, Global } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const globalStyles = (
     <Global
@@ -8,13 +9,20 @@ export const globalStyles = (
                 box-sizing: border-box;
                 padding: 0;
                 margin: 0;
-                background: #222;
+                background: white;
                 min-height: 100%;
-                font-family: "Poppins", sans-serif;
+                font-family: 'Poppins', sans-serif;
                 font-size: 16px;
-                color: #f7f7f7;
+                color: black;
                 line-height: 200%;
             }
         `}
     />
 );
+
+export const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const HomeText = styled.h1``;

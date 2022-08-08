@@ -1,16 +1,19 @@
-import createCache from "@emotion/cache";
-import { CacheProvider } from "@emotion/react";
-import { AppProps } from "next/app";
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import { AppProps } from 'next/app';
 
-import { globalStyles } from "../../shared/styles";
+import { globalStyles } from '../../shared/styles';
+import { AppLayout } from '../layout/AppLayout';
 
-const cache = createCache({ key: "next" });
+const cache = createCache({ key: 'next' });
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <CacheProvider value={cache}>
             {globalStyles}
-            <Component {...pageProps} />
+            <AppLayout>
+                <Component {...pageProps} />
+            </AppLayout>
         </CacheProvider>
     );
 }

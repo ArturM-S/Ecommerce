@@ -36,7 +36,6 @@ export default class MyDocument extends Document {
                         sizes="16x16"
                         href="../assets/favicon-16x16.png"
                     />
-                    <link rel="manifest" href="../assets/site.webmanifest" />
                     <link
                         rel="preconnect"
                         href="https://fonts.googleapis.com"

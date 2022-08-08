@@ -1,15 +1,18 @@
-import { useState } from 'react';
 import { Container } from '../../../shared/pages/Cart/styles';
+import { useCart } from '../../service/hooks/useCart';
 
 export default function Cart() {
-    const [items, setItems] = useState([]);
-    fetch('https://fakestoreapi.com/carts')
-        .then(res => res.json())
-        .then(json => setItems(json));
+    const { cart } = useCart();
+
+    const total = cart.items.reduce((sumTotal, product) => {
+        // eslint-disable-next-line no-return-assign, no-param-reassign
+        return (sumTotal += product.price);
+    }, 0);
 
     return (
         <>
-            {items.map(item => (
+            {total}
+            {cart.items.map(item => (
                 <Container key={item.id}>{item.id}</Container>
             ))}
         </>

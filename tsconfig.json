@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/service/hooks/useCart.tss"  ],
+, "src/service/hooks/useCart.tss", "src/service/hooks/useCart.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -19,6 +19,7 @@ export const CartContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 `;
 
 export const ItemsCount = styled.div`

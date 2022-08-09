@@ -6,6 +6,8 @@ import {
     ProductName,
     ProductPrice,
     ProductItem,
+    ProductList,
+    Content,
 } from '../../../shared/pages/Store/styles';
 import { useCart } from '../../service/hooks/useCart';
 
@@ -15,7 +17,7 @@ export default function Store() {
     const { addItem } = useCart();
     const [search, setSearch] = useState('');
 
-    function overflow(title: string, limit = 35) {
+    function overflow(title: string, limit = 20) {
         if (title.length > limit) {
             return `${title.substring(0, limit)}...`;
         }
@@ -55,48 +57,61 @@ export default function Store() {
     return (
         <Container>
             <FilterBar>
+                Ordenar:
                 <button type="button" onClick={() => majorToMinorFilter()}>
                     maior pra menor
                 </button>
                 <button type="button" onClick={() => minorToMajorFilter()}>
                     menor pra maior
                 </button>
+            </FilterBar>
+            <Content>
                 <input
+                    style={{
+                        width: '300px',
+                    }}
+                    placeholder="buscar..."
                     type="text"
                     onChange={e => setSearch(e.target.value)}
                     value={search}
                 />
-            </FilterBar>
 
-            {search.length > 0
-                ? filteredElectronics.map(electronic => (
-                      <ProductItem
-                          key={electronic.id}
-                          onClick={() => handleAddProduct(electronic)}
-                      >
-                          <ProductImg
-                              src={electronic.image}
-                              alt={electronic.title}
-                          />
-                          <ProductName>{electronic.title}</ProductName>
-                          <ProductPrice>R$ {electronic.price},00</ProductPrice>
-                      </ProductItem>
-                  ))
-                : electronics.map(electronic => (
-                      <ProductItem
-                          key={electronic.id}
-                          onClick={() => handleAddProduct(electronic)}
-                      >
-                          <ProductImg
-                              src={electronic.image}
-                              alt={electronic.title}
-                          />
-                          <ProductName>
-                              {overflow(electronic.title)}
-                          </ProductName>
-                          <ProductPrice>R$ {electronic.price},00</ProductPrice>
-                      </ProductItem>
-                  ))}
+                <ProductList>
+                    {search.length > 0
+                        ? filteredElectronics.map(electronic => (
+                              <ProductItem
+                                  key={electronic.id}
+                                  onClick={() => handleAddProduct(electronic)}
+                              >
+                                  <ProductImg
+                                      src={electronic.image}
+                                      alt={electronic.title}
+                                  />
+                                  <ProductName>{electronic.title}</ProductName>
+                                  <ProductPrice>
+                                      R$ {electronic.price},00
+                                  </ProductPrice>
+                              </ProductItem>
+                          ))
+                        : electronics.map(electronic => (
+                              <ProductItem
+                                  key={electronic.id}
+                                  onClick={() => handleAddProduct(electronic)}
+                              >
+                                  <ProductImg
+                                      src={electronic.image}
+                                      alt={electronic.title}
+                                  />
+                                  <ProductName>
+                                      {overflow(electronic.title)}
+                                  </ProductName>
+                                  <ProductPrice>
+                                      R$ {electronic.price},00
+                                  </ProductPrice>
+                              </ProductItem>
+                          ))}
+                </ProductList>
+            </Content>
         </Container>
     );
 }

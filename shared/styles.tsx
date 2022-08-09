@@ -10,11 +10,27 @@ export const globalStyles = (
                 padding: 0;
                 margin: 0;
                 background: white;
-                min-height: 100%;
+                height: 100vh;
+                max-width: 100vw;
                 font-family: 'Poppins', sans-serif;
                 font-size: 16px;
                 color: black;
                 line-height: 200%;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 8px;
+                border: none;
+                border-radius: 5px;
+                :hover {
+                    filter: brightness(0.9);
+                }
             }
         `}
     />

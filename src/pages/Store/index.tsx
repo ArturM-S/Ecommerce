@@ -79,10 +79,7 @@ export default function Store() {
                 <ProductList>
                     {search.length > 0
                         ? filteredElectronics.map(electronic => (
-                              <ProductItem
-                                  key={electronic.id}
-                                  onClick={() => handleAddProduct(electronic)}
-                              >
+                              <ProductItem key={electronic.id}>
                                   <ProductImg
                                       src={electronic.image}
                                       alt={electronic.title}
@@ -90,14 +87,23 @@ export default function Store() {
                                   <ProductName>{electronic.title}</ProductName>
                                   <ProductPrice>
                                       R$ {electronic.price},00
+                                      <button
+                                          type="button"
+                                          onClick={() =>
+                                              handleAddProduct(electronic)
+                                          }
+                                          style={{
+                                              backgroundColor: 'blue',
+                                              color: 'white',
+                                          }}
+                                      >
+                                          +
+                                      </button>
                                   </ProductPrice>
                               </ProductItem>
                           ))
                         : electronics.map(electronic => (
-                              <ProductItem
-                                  key={electronic.id}
-                                  onClick={() => handleAddProduct(electronic)}
-                              >
+                              <ProductItem key={electronic.id}>
                                   <ProductImg
                                       src={electronic.image}
                                       alt={electronic.title}
@@ -107,6 +113,18 @@ export default function Store() {
                                   </ProductName>
                                   <ProductPrice>
                                       R$ {electronic.price},00
+                                      <button
+                                          type="button"
+                                          onClick={() =>
+                                              handleAddProduct(electronic)
+                                          }
+                                          style={{
+                                              backgroundColor: 'blue',
+                                              color: 'white',
+                                          }}
+                                      >
+                                          +
+                                      </button>
                                   </ProductPrice>
                               </ProductItem>
                           ))}

@@ -64,6 +64,8 @@ export const ProductName = styled.h1`
 `;
 
 export const ProductPrice = styled.h1`
+    display: flex;
+    gap: 8px;
     font-size: 1.1rem;
     color: green;
 `;

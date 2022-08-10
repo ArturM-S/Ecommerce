@@ -32,15 +32,17 @@ export default function Cart() {
             <span
                 style={{
                     display: 'flex',
-                    width: '70%',
+                    width: '100%',
                     justifyContent: 'space-around',
-                    alignSelf: 'flex-start',
                     margin: '10% 0 0 5%',
                 }}
             >
                 <CartItem
                     style={{
                         border: 'none',
+                        justifyContent: 'flex-start',
+                        gap: '60%',
+                        padding: '0 2% 0 2%',
                     }}
                 >
                     <span
@@ -68,6 +70,7 @@ export default function Cart() {
                 style={{
                     display: 'flex',
                     width: '100%',
+                    alignItems: 'flex-start',
                     justifyContent: 'space-around',
                 }}
             >

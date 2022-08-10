@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-    height: 100px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 `;
 export const CartList = styled.div`
     width: 70%;

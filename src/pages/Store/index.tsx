@@ -65,10 +65,10 @@ export default function Store() {
             <FilterBar>
                 Ordenar:
                 <button type="button" onClick={() => majorToMinorFilter()}>
-                    maior pra menor
+                    menor pra maior
                 </button>
                 <button type="button" onClick={() => minorToMajorFilter()}>
-                    menor pra maior
+                    maior pra menor
                 </button>
             </FilterBar>
             <Content>

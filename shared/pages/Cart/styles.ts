@@ -1,11 +1,28 @@
 import styled from '@emotion/styled';
 
+interface RemovedMgsProps {
+    isRemoved: boolean;
+}
+
 export const Container = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 `;
+
+export const RemovedMsg = styled.div<RemovedMgsProps>`
+    position: absolute;
+    display: ${props => (props.isRemoved ? 'flex' : 'none')};
+    transition: 0.3s;
+    align-self: center;
+    justify-self: center;
+    border-radius: 5px;
+    background-color: lightcoral;
+    color: white;
+    font-size: 1rem;
+`;
+
 export const CartList = styled.div`
     width: 70%;
     display: flex;

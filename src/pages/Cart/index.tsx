@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IoTrashOutline } from 'react-icons/io5';
 import {
     BuyButton,
@@ -8,6 +9,7 @@ import {
     CartPrice,
     Container,
     RemoveButton,
+    RemovedMsg,
     Resume,
     ResumeItem,
     ResumeText,
@@ -17,8 +19,14 @@ import { useCart } from '../../service/hooks/useCart';
 
 export default function Cart() {
     const { cart, removeItem } = useCart();
+    const [isRemoved, setIsRemoved] = useState(false);
+
     function handleRemoveProduct(electronic) {
+        setIsRemoved(true);
         removeItem(electronic.id);
+        setTimeout(() => {
+            setIsRemoved(false);
+        }, 800);
     }
 
     const total = cart.items.reduce((sumTotal, product) => {
@@ -28,6 +36,9 @@ export default function Cart() {
 
     return (
         <Container>
+            <RemovedMsg isRemoved={isRemoved}>
+                Produto removido do carrinho!
+            </RemovedMsg>
             <h1>Checkout</h1>
             <span
                 style={{

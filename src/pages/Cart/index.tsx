@@ -75,8 +75,9 @@ export default function Cart() {
                 }}
             >
                 <CartList>
-                    {cart.items.map(item => (
-                        <CartItem key={item.id}>
+                    {cart.items.map((item, index) => (
+                        // eslint-disable-next-line react/no-array-index-key
+                        <CartItem key={index}>
                             <span
                                 style={{
                                     display: 'flex',

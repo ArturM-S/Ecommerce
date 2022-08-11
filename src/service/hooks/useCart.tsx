@@ -15,6 +15,7 @@ const CartContext = createContext<CartContextData>({} as CartContextData);
 export function CartProvider({ children }: CartProviderProps): JSX.Element {
     const [cart, setCart] = useState({ items: [] });
     // const [cart, setCart] = useState<[{ item: object; count: number }]>();
+    console.log(cart.items);
 
     const addItem = item => {
         setCart({
@@ -22,9 +23,15 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         });
     };
 
-    const removeItem = (id: number) => {
+    const removeItem = item => {
+        for (let i = 0; i < cart.items.length; i++) {
+            if (cart.items[i].id === item) {
+                cart.items.splice(i, 1);
+                break;
+            }
+        }
         setCart({
-            items: cart.items.filter(item => item.id !== id),
+            items: cart.items,
         });
     };
 

@@ -8,6 +8,7 @@ import {
     ProductItem,
     ProductList,
     Content,
+    AddedMsg,
 } from '../../../shared/pages/Store/styles';
 import { useCart } from '../../service/hooks/useCart';
 
@@ -16,6 +17,7 @@ export default function Store() {
     const [electronics, setElectronics] = useState([]);
     const { addItem } = useCart();
     const [search, setSearch] = useState('');
+    const [isAdded, setIsAdded] = useState(false);
 
     function overflow(title: string, limit = 20) {
         if (title.length > limit) {
@@ -38,7 +40,11 @@ export default function Store() {
     };
 
     function handleAddProduct(electronic) {
+        setIsAdded(true);
         addItem(electronic);
+        setTimeout(() => {
+            setIsAdded(false);
+        }, 800);
     }
 
     useEffect(() => {
@@ -75,7 +81,9 @@ export default function Store() {
                     onChange={e => setSearch(e.target.value)}
                     value={search}
                 />
-
+                <AddedMsg isAdded={isAdded}>
+                    Produto adicionado ao carrinho!
+                </AddedMsg>
                 <ProductList>
                     {search.length > 0
                         ? filteredElectronics.map(electronic => (
